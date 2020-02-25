@@ -18,16 +18,14 @@ public class Router : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(nave.GetComponent<Nave>().selected){
-            if (Input.GetKeyDown(KeyCode.Mouse1)) {
-                mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                active=true;
-            }
+        if(nave.GetComponent<Nave>().move){
+            mousepos = nave.GetComponent<Nave>().DestinoUnidade;
+            active=true;
         }     
 
         if(active){   
-            lineRenderer.SetPosition(0, new Vector3(nave.transform.position.x, nave.transform.position.y));
-            lineRenderer.SetPosition(1, new Vector3(mousepos.x, mousepos.y));
+            lineRenderer.SetPosition(1, new Vector3(nave.transform.position.x, nave.transform.position.y));
+            lineRenderer.SetPosition(0, new Vector3(mousepos.x, mousepos.y));
         }
     }
 }
