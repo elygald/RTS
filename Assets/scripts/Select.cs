@@ -1,68 +1,149 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using System;
+
 
 public class Select : MonoBehaviour
 {
-    Vector3 inicial;
-    Vector3 final;
-    Vector3 inicialr;
-    Vector3 finalr;
-    LineRenderer lineRenderer;
-    EdgeCollider2D collider;
-    bool mousepress = false;
-    void Start()
-    {
-        lineRenderer = this.gameObject.GetComponent<LineRenderer>();
-        collider = this.gameObject.GetComponent<EdgeCollider2D>();
+    public Camera Cam;
+    RaycastHit R;
 
+    GameObject[] UnidadesSel;
+
+    float MediaTamUnidades;
+    float right;
+    Vector3 DestinoTropas;
+
+    GameObject[] UnidadesSelAux ;
+    int QndUnidades;
+
+    public Image ImagemSelecao;
+    Vector3 PosMinMouse;
+    Vector3 PosMaxMouse;
+    Vector3 PosIniMouse;
+//-------------------------------------------
+    void Start () {
+        UnidadesSel = GameObject.FindGameObjectsWithTag("nave");
+        MediaTamUnidades = 0.7f;
+        right = 0.7f;
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        int i = 0;
+
+        if(Input.GetMouseButtonDown(0))
         {
-            inicial = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-           
-            mousepress = true;
+            PosMinMouse = Input.mousePosition; 
+            PosIniMouse = Input.mousePosition;
         }
-        if (mousepress) {
-            final = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            inicialr = new Vector3(inicial.x, final.y);
-            finalr = new Vector3(final.x, inicial.y);
-            lineRenderer.SetPosition(0, new Vector3(finalr.x, finalr.y));
-            lineRenderer.SetPosition(1, new Vector3(final.x, final.y));
-            lineRenderer.SetPosition(2, new Vector3(inicialr.x, inicialr.y));
-            lineRenderer.SetPosition(3, new Vector3(inicial.x, inicial.y));
 
-            Vector2[] colliderpoints;
-            colliderpoints = collider.points;
-            colliderpoints[0] = new Vector3(finalr.x, finalr.y);
-            colliderpoints[1] = new Vector3(final.x, final.y);
-            colliderpoints[2] = new Vector3(inicialr.x, inicialr.y);
-            colliderpoints[3] = new Vector3(inicial.x, inicial.y);
-            colliderpoints[4] = new Vector3(finalr.x, inicial.y);
-            collider.points = colliderpoints;
-            // collider.offset = lineRenderer.bounds.center;
-        }
-        if (Input.GetMouseButtonUp(0))
+        if(Input.GetMouseButton(0))
         {
-            final = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //lineRenderer.SetPosition(1, new Vector3(final.x, final.y));
-            mousepress=false;
+            if (Input.mousePosition.x >= PosIniMouse.x)
+            {
+                PosMaxMouse.x = Input.mousePosition.x;   
+            
+            }
+        else
+        {
+            PosMaxMouse.x = PosIniMouse.x;
+            PosMinMouse.x = Input.mousePosition.x; 
+        }
+        
+        
+        if (Input.mousePosition.y >= PosIniMouse.y)
+        {
+            PosMaxMouse.y = Input.mousePosition.y;    
+        }
+        else
+        {
+            PosMaxMouse.y = PosIniMouse.y;
+            PosMinMouse.y = Input.mousePosition.y;
+        }
+        
+        ImagemSelecao.rectTransform.anchorMax = new Vector2(PosMaxMouse.x / Screen.width,PosMaxMouse.y / Screen.height);
+        ImagemSelecao.rectTransform.anchorMin = new Vector2(PosMinMouse.x / Screen.width,PosMinMouse.y / Screen.height);  
+        
         }
 
-        lineRenderer.enabled = mousepress;
-        // Debug.Log("position ini:" + inicial + " final" + final);
+        if(Input.GetMouseButtonUp(0))
+        {
+            
+            RaycastHit2D PosMinMouse2d = Physics2D.Raycast(Cam.ScreenToWorldPoint(PosMinMouse), Vector2.zero);
+            RaycastHit2D PosMaxMouse2d  = Physics2D.Raycast(Cam.ScreenToWorldPoint(PosMaxMouse), Vector2.zero);
+            List<GameObject> items = new List<GameObject> (GameObject.FindGameObjectsWithTag("nave"));
+            items.AddRange (new List<GameObject> (GameObject.FindGameObjectsWithTag ("enemy")));
+            UnidadesSel = items.ToArray();
+ 
+            UnidadesSelAux = new GameObject[UnidadesSel.Length];
+            QndUnidades = 0;
+        
+        
+        for(i = 0; i<UnidadesSel.Length; i++)
+        {
+            if(UnidadesSel[i].transform.position.x > PosMinMouse2d.point.x &&
+                UnidadesSel[i].transform.position.x < PosMaxMouse2d.point.x &&
+                UnidadesSel[i].transform.position.y > PosMinMouse2d.point.y &&
+                UnidadesSel[i].transform.position.y < PosMaxMouse2d.point.y )
+            {
+                UnidadesSelAux[QndUnidades] = UnidadesSel[i];
+                UnidadesSel[i].GetComponent<Nave>().selected = true;
+                QndUnidades++;
+            }
+        }
+        
+        UnidadesSel = new GameObject[QndUnidades];
+        for(i = 0; i<QndUnidades; i++)
+        {
+            UnidadesSel[i] = UnidadesSelAux[i];
+        }
+        
+        ImagemSelecao.rectTransform.anchorMax = new Vector2(0,0);
+        ImagemSelecao.rectTransform.anchorMin = new Vector2(0,0);
+        }
+    
+        i = 0;
+        if(Input.GetMouseButtonDown(1))
+        {
+        //mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null) 
+            {
+                DestinoTropas = hit.point;
 
+                foreach (GameObject Unidade in UnidadesSel)
+                {        
+                            
+                // DestinoTropas.z = Unidade.transform.position.z;
+        
+                    Vector3 DestinoUnidade;
+        
+                    DestinoUnidade = DestinoTropas;
+                
+                    float lado = Mathf.Floor(Mathf.Sqrt(UnidadesSel.Length)); 
+        
+                    float x;
+                    float z;
+            
+                    x = (i/lado);
+                    z = (i%lado);
+        
+                    DestinoUnidade -= ((lado/2) - x)*right*Vector3.right;
+                    DestinoUnidade -= ((lado/2) - z)*MediaTamUnidades*Vector3.up;
+                    Unidade.GetComponent<Nave>().selected = true;
+                    Unidade.GetComponent<Nave>().move = true;
+                    Unidade.GetComponent<Nave>().DestinoUnidade = DestinoUnidade;
+                    i++;
+                }
+                
+            }
 
+        }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("nave")){
-            collision.GetComponent<Nave>().selected = true;  
-        }
-    }
+   
 }
