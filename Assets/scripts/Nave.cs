@@ -85,4 +85,11 @@ public class Nave : MonoBehaviour
              Debug.Log(this.transform.localScale);    
         }              
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        // if (collision.CompareTag("nave")){
+        //         move = true;
+        // }
+    }
+
 }

@@ -1,5 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
 --- !u!1 &140087715
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dad: {fileID: 1591532375050511367}
+=======
+>>>>>>> 7db8fb769d8b17a40307dea70410cf3ba65e7d55
 --- !u!1 &1591532375050511367
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,12 +188,19 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591532375050511367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.3864, y: 2.2509, z: 1}
   m_Children:
   - {fileID: 1591532375369506685}
   - {fileID: 1285159805}
   - {fileID: 140087716}
+=======
+  m_LocalPosition: {x: 4.47, y: -2.2018, z: 0}
+  m_LocalScale: {x: 2.3864, y: 2.2509, z: 1}
+  m_Children:
+  - {fileID: 1591532375369506685}
+>>>>>>> 7db8fb769d8b17a40307dea70410cf3ba65e7d55
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -253,7 +263,11 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+<<<<<<< HEAD
   m_IsTrigger: 1
+=======
+  m_IsTrigger: 0
+>>>>>>> 7db8fb769d8b17a40307dea70410cf3ba65e7d55
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -303,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
+<<<<<<< HEAD
   DestinoUnidade: {x: 0, y: 0}
   rotation: 900
   speed: 3
@@ -315,6 +330,9 @@ MonoBehaviour:
   valuedano: 10
   timedano: 0.7
   timer: 0
+=======
+  move: 0
+>>>>>>> 7db8fb769d8b17a40307dea70410cf3ba65e7d55
 --- !u!1 &1591532375369506675
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +359,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591532375369506675}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: 0, y: 0, z: 0}
+=======
+  m_LocalPosition: {x: -0.004, y: 0.012, z: -10}
+>>>>>>> 7db8fb769d8b17a40307dea70410cf3ba65e7d55
   m_LocalScale: {x: 0.41904125, y: 0.44426677, z: 1}
   m_Children: []
   m_Father: {fileID: 1591532375050511361}
@@ -408,8 +430,13 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
+<<<<<<< HEAD
       key0: {r: 0, g: 0.9622642, b: 0.02425331, a: 0.25490198}
       key1: {r: 0, g: 0.95686275, b: 0.023529412, a: 0.25490198}
+=======
+      key0: {r: 0.54509807, g: 0.8862745, b: 0.8784314, a: 0.25490198}
+      key1: {r: 0.52156866, g: 0.8784314, b: 0.87058824, a: 0.25490198}
+>>>>>>> 7db8fb769d8b17a40307dea70410cf3ba65e7d55
       key2: {r: 0.52156866, g: 0.8784314, b: 0.87058824, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
