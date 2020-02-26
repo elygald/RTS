@@ -13,18 +13,22 @@ public class Nave : MonoBehaviour
     public float lifenow;
     public float lifeporcent;
     public bool move = false;
+    public GameObject lifebarPerfab;
     public GameObject lifebar;
     public bool dano = false;
     public float valuedano;
     public float timedano;
     public float timer;
+    public Vector2 target;
+
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>(); 
         lifenow = life;
         lifeporcent = 100/life ;
         lifeporcent = lifeporcent / 100;
-        lifebar.transform.localScale = new Vector3((lifeporcent * lifenow), lifebar.transform.localScale.y, 0);
+        lifebar =(GameObject) Instantiate(lifebarPerfab, new Vector3( transform.position.x, transform.position.y + 0.25f, transform.position.z),Quaternion.Euler(transform.position));
+        
     }
 
     // Update is called once per frame
@@ -36,12 +40,18 @@ public class Nave : MonoBehaviour
             {
                 timer = 0;
                 lifenow = lifenow - valuedano;
-                lifebar.transform.localScale = new Vector3((lifeporcent * lifenow), lifebar.transform.localScale.y, 0);
-                lifebar.GetComponent<lifebar>().active = true;                
+                lifebar.transform.localScale = new Vector3((lifeporcent * lifenow)*2f, lifebar.transform.localScale.y, 0);
+                lifebar.GetComponent<lifebar>().active = true;
             }
-            
+            Vector2 point = (Vector2)transform.position - (Vector2)DestinoUnidade;
+            float value = Vector3.Cross(point, transform.up).z;
+            transform.Rotate(0f, 0f, value * rotation);
         }
-        if(lifenow <= 0){
+    
+            
+    
+        lifebar.transform.position = new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
+        if (lifenow <= 0){
             Destroy(this.gameObject);
         }
         
@@ -85,11 +95,4 @@ public class Nave : MonoBehaviour
              Debug.Log(this.transform.localScale);    
         }              
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        // if (collision.CompareTag("nave")){
-        //         move = true;
-        // }
-    }
-
 }

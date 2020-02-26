@@ -1,11 +1,7 @@
 {
     "version": "0.2.0",
-<<<<<<< HEAD
     "configurations": [
         {
-=======
-    "configurations": [{
->>>>>>> 7db8fb769d8b17a40307dea70410cf3ba65e7d55
         "name": "Unity Editor",
         "type": "unity",
         "request": "launch"
