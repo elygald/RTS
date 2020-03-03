@@ -7,15 +7,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1591532375050511360, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591532375050511360, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.53306335
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591532375050511360, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.53306335
+      objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.09
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
@@ -65,18 +80,12 @@ PrefabInstance:
     - target: {fileID: 1591532375050511367, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_Name
-      value: FighterEnemy Variant
+      value: FighterEnemy Variant (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511367, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 1591532375050511372, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
-        type: 3}
-      propertyPath: lifebarPerfab
-      value: 
-      objectReference: {fileID: 3062829346143761229, guid: a4af7a29bbbe9f748bf34e6266702c23,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f441ee1d4de51f8e89834c27dfc15e0, type: 3}

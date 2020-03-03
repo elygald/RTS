@@ -831,14 +831,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 140087717, guid: 6f441ee1d4de51f8e89834c27dfc15e0, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 140087717, guid: 6f441ee1d4de51f8e89834c27dfc15e0, type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -899,16 +891,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fighter 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1591532375050511372, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
-        type: 3}
-      propertyPath: lifebar
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1591532375050511372, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
-        type: 3}
-      propertyPath: lifebarPerfab
-      value: 
-      objectReference: {fileID: 3062829346143761229, guid: a4af7a29bbbe9f748bf34e6266702c23,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f441ee1d4de51f8e89834c27dfc15e0, type: 3}
