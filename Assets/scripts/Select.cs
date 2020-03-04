@@ -109,31 +109,32 @@ public class Select : MonoBehaviour
         i = 0;
         if(Input.GetMouseButtonDown(1))
         {
-        //mousepos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hit.collider != null) 
             {
                 DestinoTropas = hit.point;
-
+                float lado = Mathf.Floor(Mathf.Sqrt(UnidadesSel.Length));
+                float first = 0;
+                Vector3 DestinoUnidade;
                 foreach (GameObject Unidade in UnidadesSel)
                 {        
-                            
-                // DestinoTropas.z = Unidade.transform.position.z;
-        
-                    Vector3 DestinoUnidade;
         
                     DestinoUnidade = DestinoTropas;
-                
-                    float lado = Mathf.Floor(Mathf.Sqrt(UnidadesSel.Length)); 
-        
+                  
                     float x;
-                    float z;
-            
+                    float y;
                     x = (i/lado);
-                    z = (i%lado);
-        
+                    y = (i%lado);
+
+                    if (i % lado == 0)
+                        first = x;
+                    else
+                        x = first;
+
                     DestinoUnidade -= ((lado/2) - x)*right*Vector3.right;
-                    DestinoUnidade -= ((lado/2) - z)*MediaTamUnidades*Vector3.up;
+                    DestinoUnidade -= ((lado/2) - y)*MediaTamUnidades*Vector3.up;
+                    Debug.Log("first " + first);
                     Unidade.GetComponent<Nave>().selected = true;
                     Unidade.GetComponent<Nave>().move = true;
                     Unidade.GetComponent<Nave>().DestinoUnidade = DestinoUnidade;
