@@ -20,6 +20,7 @@ public class Nave : MonoBehaviour
     public float timedano;
     public float timer;
     public Vector3 target;
+    public GameObject enemy;
     private Color original;
 
     void Start()
@@ -29,40 +30,52 @@ public class Nave : MonoBehaviour
         lifeporcent = 100/life ;
         lifeporcent = lifeporcent / 100;
         lifebar =(GameObject) Instantiate(lifebarPerfab, new Vector3( transform.position.x, transform.position.y + 0.25f, transform.position.z),Quaternion.Euler(transform.position));
+        //lifebar.transform.parent = this.transform;
         original = this.GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(dano){
-             timer += Time.deltaTime;
+
+        if (enemy)
+        {
+            target = enemy.transform.position;
+
+
+            timer += Time.deltaTime;
             if (timer > timedano)
             {
                 timer = 0;
-                lifenow = lifenow - valuedano;
-                lifebar.transform.localScale = new Vector3((lifeporcent * lifenow)*2f, lifebar.transform.localScale.y, 0);
+                enemy.GetComponent<Nave>().lifenow -= valuedano;
+                lifebar.transform.localScale = new Vector3((lifeporcent * lifenow) * 2f, lifebar.transform.localScale.y, 0);
                 lifebar.GetComponent<lifebar>().active = true;
 
             }
-            if (!move) { 
+            if (!move)
+            {
                 Vector3 direction = target - transform.position;
                 Debug.DrawRay(transform.position, direction, Color.green);
                 float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
 
-                Quaternion angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);    
+                Quaternion angleAxis = Quaternion.AngleAxis(angle, Vector3.forward);
 
                 transform.rotation = Quaternion.Lerp(transform.rotation, angleAxis, Time.deltaTime * 50f);
             }
-
+        }
+        else {
 
         }
+
+
 
         
 
         lifebar.transform.position = new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
         if (lifenow <= 0){
+            Destroy(lifebar);
             Destroy(this.gameObject);
+           
         }
         
         if (selected)

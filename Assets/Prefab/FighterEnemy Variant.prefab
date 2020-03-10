@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1285159804, guid: 6f441ee1d4de51f8e89834c27dfc15e0, type: 3}
+      propertyPath: m_TagString
+      value: enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511360, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_Color.r
@@ -25,12 +29,12 @@ PrefabInstance:
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7
+      value: 7.67
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.96
+      value: -1.19
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
@@ -80,7 +84,7 @@ PrefabInstance:
     - target: {fileID: 1591532375050511367, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_Name
-      value: FighterEnemy Variant (2)
+      value: FighterEnemy Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511367, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}

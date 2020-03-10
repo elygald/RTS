@@ -119,26 +119,27 @@ public class Select : MonoBehaviour
                 Vector3 DestinoUnidade;
                 foreach (GameObject Unidade in UnidadesSel)
                 {        
-        
-                    DestinoUnidade = DestinoTropas;
+                    if (Unidade) { 
+                        DestinoUnidade = DestinoTropas;
                   
-                    float x;
-                    float y;
-                    x = (i/lado);
-                    y = (i%lado);
+                        float x;
+                        float y;
+                        x = (i/lado);
+                        y = (i%lado);
 
-                    if (i % lado == 0)
-                        first = x;
-                    else
-                        x = first;
+                        if (i % lado == 0)
+                            first = x;
+                        else
+                            x = first;
 
-                    DestinoUnidade -= ((lado/2) - x)*right*Vector3.right;
-                    DestinoUnidade -= ((lado/2) - y)*MediaTamUnidades*Vector3.up;
-                    Debug.Log("first " + first);
-                    Unidade.GetComponent<Nave>().selected = true;
-                    Unidade.GetComponent<Nave>().move = true;
-                    Unidade.GetComponent<Nave>().DestinoUnidade = DestinoUnidade;
-                    i++;
+                        DestinoUnidade -= ((lado/2) - x)*right*Vector3.right;
+                        DestinoUnidade -= ((lado/2) - y)*MediaTamUnidades*Vector3.up;
+                       // Debug.Log("first " + first);
+                        Unidade.GetComponent<Nave>().selected = true;
+                        Unidade.GetComponent<Nave>().move = true;
+                        Unidade.GetComponent<Nave>().DestinoUnidade = DestinoUnidade;
+                        i++;
+                   }
                 }
                 
             }
