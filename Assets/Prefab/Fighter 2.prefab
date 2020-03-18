@@ -1,5 +1,67 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &742655514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 742655515}
+  - component: {fileID: 742655516}
+  - component: {fileID: 742655517}
+  m_Layer: 0
+  m_Name: viewcollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &742655515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742655514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1591532375050511361}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &742655516
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742655514}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.54
+--- !u!114 &742655517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 742655514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58545b9d991f86e16a3acc035c7a2fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  enemy: enemy
 --- !u!1 &1591532375050511367
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,8 +75,6 @@ GameObject:
   - component: {fileID: 1591532375050511362}
   - component: {fileID: 1591532375050511363}
   - component: {fileID: 1591532375050511372}
-  - component: {fileID: 855569805215141587}
-  - component: {fileID: 5215285313441735013}
   m_Layer: 0
   m_Name: Fighter 2
   m_TagString: nave
@@ -36,6 +96,7 @@ Transform:
   - {fileID: 1591532375369506685}
   - {fileID: 8649364821452042562}
   - {fileID: 9184576257741045731}
+  - {fileID: 742655515}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -164,36 +225,6 @@ MonoBehaviour:
   timer: 0
   target: {x: 0, y: 0, z: 0}
   enemy: {fileID: 0}
---- !u!58 &855569805215141587
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591532375050511367}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.54
---- !u!114 &5215285313441735013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1591532375050511367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58545b9d991f86e16a3acc035c7a2fa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dad: {fileID: 1591532375050511367}
-  first: {fileID: 0}
 --- !u!1 &1591532375369506675
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,9 +7,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1285159804, guid: 6f441ee1d4de51f8e89834c27dfc15e0, type: 3}
-      propertyPath: m_TagString
-      value: enemy
+    - target: {fileID: 742655517, guid: 6f441ee1d4de51f8e89834c27dfc15e0, type: 3}
+      propertyPath: enemy
+      value: nave
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511360, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}

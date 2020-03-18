@@ -4,35 +4,46 @@ using UnityEngine;
 
 public class collision : MonoBehaviour
 {
-    public GameObject target;
-    private void OnTriggerStay2D(Collider2D other)
+    public List<GameObject> targets = new List<GameObject>();
+    public string enemy;
+    private void OnTriggerEnter2D(Collider2D other)
     {
-
-        if (this.gameObject.tag != other.gameObject.tag && other.gameObject.tag != "background")
-        {
-            target = other.gameObject;
-                if (!this.GetComponent<Nave>().enemy)
-                    this.GetComponent<Nave>().enemy = other.gameObject;
-        }
+        if(other.gameObject.tag == enemy && 
+            other.gameObject.tag != "background" )
+            {
+                targets.Add(other.gameObject);
+                    if (!this.transform.parent.GetComponent<Nave>().enemy)
+                        this.transform.parent.GetComponent<Nave>().enemy = other.gameObject;
+            }
     }
 
 
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (this.gameObject.tag != other.gameObject.tag && other.gameObject.tag != "background")
-        {
-            if (this.GetComponent<Nave>().enemy) { 
-                this.GetComponent<Nave>().enemy = null;
-                target = null;
+        if(other.gameObject.tag == enemy && 
+            other.gameObject.tag != "background")
+            {
+                if (this.transform.parent.GetComponent<Nave>().enemy) { 
+                    this.transform.parent.GetComponent<Nave>().enemy = null;
+                    targets.Remove(other.gameObject);
+                }
             }
-        }
     }
     void Update()
     {
-        if ((!this.GetComponent<Nave>().enemy)&&(target)) {
-            this.GetComponent<Nave>().enemy = target;
+        if (this.transform.parent.GetComponent<Nave>().enemy == null)
+        {
+            foreach (var target in targets)
+            {
+                if(target!= null) {
+                    this.transform.parent.GetComponent<Nave>().enemy = target;
+                }else{
+                    targets.Remove(target);
+                }
+            }
         }
+       
     }
 
 }
