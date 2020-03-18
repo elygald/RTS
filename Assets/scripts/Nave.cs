@@ -16,11 +16,13 @@ public class Nave : MonoBehaviour
     public GameObject lifebarPerfab;
     public GameObject lifebar;
     public bool dano = false;
-    public float valuedano;
+  
     public float timedano;
     public float timer;
     public Vector3 target;
     public GameObject enemy;
+    public GameObject projectile;
+    public Transform projectileposition;
     private Color original;
 
     void Start()
@@ -47,11 +49,13 @@ public class Nave : MonoBehaviour
             if (timer > timedano)
             {
                 timer = 0;
-                enemy.GetComponent<Nave>().lifenow -= valuedano;
-                lifebar.transform.localScale = new Vector3((lifeporcent * lifenow) * 2f, lifebar.transform.localScale.y, 0);
-                lifebar.GetComponent<lifebar>().active = true;
-
+               
+                GameObject clone;
+                clone =  Instantiate(projectile, projectileposition);
+                clone.GetComponent<Projectile>().enemy = enemy.tag;
+                clone.transform.parent = null;
             }
+
             if (!move)
             {
                 Vector3 direction = target - transform.position;
@@ -67,9 +71,10 @@ public class Nave : MonoBehaviour
 
         }
 
+        lifebar.transform.localScale = new Vector3((lifeporcent * lifenow) * 2f, lifebar.transform.localScale.y, 0);
+        lifebar.GetComponent<lifebar>().active = true;
 
 
-        
 
         lifebar.transform.position = new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
         if (lifenow <= 0){
