@@ -72,11 +72,11 @@ public class Nave : MonoBehaviour
             }
         }
         else {
-
+            targetfixed = false;
         }
 
         lifebar.transform.localScale = new Vector3((lifeporcent * lifenow) * 2f, lifebar.transform.localScale.y, 0);
-        lifebar.GetComponent<lifebar>().active = true;
+        lifebar.GetComponent<LifeBar>().active = true;
 
 
 

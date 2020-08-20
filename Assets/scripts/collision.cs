@@ -2,59 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class collision : MonoBehaviour
+public class Collision : MonoBehaviour
 {
     public List<GameObject> targets = new List<GameObject>();
     public string enemy;
     private float _distance = 0f;
-    private void OnTriggerEnter2D(Collider2D other)
+    // indentificar o inimigo se tiver um inimigo selecionado atirar nele
+    // se não tiver em nenhum inimigo selecionado atirar no mais proximo 
+    // para atirar o inimigo tem que estar dentro da area de ação 
+    private void OnTriggerStay2D(Collider2D other)
     {
         if(other.gameObject.tag == enemy && 
             other.gameObject.tag != "background" )
-            {
-                targets.Add(other.gameObject);
-                    if (!this.transform.parent.GetComponent<Nave>().enemy && !this.transform.parent.GetComponent<Nave>().targetfixed)
-                        this.transform.parent.GetComponent<Nave>().enemy = other.gameObject;
-                        _distance = Vector2.Distance(this.transform.position, other.transform.position);
+        {         
+               
+            if (this.transform.parent.GetComponent<Nave>().enemy != null){
+                _distance = Vector2.Distance(this.transform.position , other.transform.position);
+                float dist = Vector2.Distance(this.transform.position, this.transform.parent.GetComponent<Nave>().enemy.transform.position);
+                if(!this.transform.parent.GetComponent<Nave>().targetfixed){
+                    this.transform.parent.GetComponent<Nave>().enemy = _distance >= dist ? other.gameObject : this.transform.parent.GetComponent<Nave>().enemy;
+                }                  
+            }else{
+                 this.transform.parent.GetComponent<Nave>().enemy = other.gameObject;
+            }
         }
     }
 
-
-
-    private void OnTriggerExit2D(Collider2D other)
+     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.tag == enemy && 
-            other.gameObject.tag != "background")
-            {
-                if (this.transform.parent.GetComponent<Nave>().enemy) { 
-                    this.transform.parent.GetComponent<Nave>().enemy = null;
-                    targets.Remove(other.gameObject);
-                }else if (!this.transform.parent.GetComponent<Nave>().enemy)
-                {
-                    targets.Clear();
-                }
-            }
-    }
-    void Update()
-    {
-        if (this.transform.parent.GetComponent<Nave>().enemy == null)
-        {
-            this.transform.parent.GetComponent<Nave>().targetfixed = false;
-            if(targets.Count != 0) { 
-                foreach (var target in targets)
-                {
-                    if(target!= null) {
-                        float dist = Vector2.Distance(this.transform.position, target.transform.position);
-                        this.transform.parent.GetComponent<Nave>().enemy = _distance >= dist ? target : this.transform.parent.GetComponent<Nave>().enemy;
-                        _distance = _distance >= dist ? dist : _distance;                     }
-                    else{
-                        targets.Remove(target);
-                    }
-                }
-            }
-
+         if(other.gameObject.tag == enemy && 
+            other.gameObject.tag != "background" )
+        {     
+            this.transform.parent.GetComponent<Nave>().enemy = null;
         }
-       
     }
 
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class camera : MonoBehaviour
+public class MainCamera : MonoBehaviour
 {
     Vector2 inicial;
     Vector2 final;

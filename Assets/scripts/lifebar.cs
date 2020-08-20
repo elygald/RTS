@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class lifebar : MonoBehaviour
+public class LifeBar : MonoBehaviour
 {
     public float timelife;
     public float timer;

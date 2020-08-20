@@ -481,7 +481,7 @@ PrefabInstance:
     - target: {fileID: 7593184638525723751, guid: 03a68f0ddffd02848babd1d464a713bb,
         type: 3}
       propertyPath: m_Name
-      value: Particles
+      value: right turbine
       objectReference: {fileID: 0}
     - target: {fileID: 7593184638525723754, guid: 03a68f0ddffd02848babd1d464a713bb,
         type: 3}
@@ -561,7 +561,7 @@ PrefabInstance:
     - target: {fileID: 7593184638525723751, guid: 03a68f0ddffd02848babd1d464a713bb,
         type: 3}
       propertyPath: m_Name
-      value: Particles (1)
+      value: left turbine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03a68f0ddffd02848babd1d464a713bb, type: 3}
