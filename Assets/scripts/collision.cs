@@ -13,7 +13,7 @@ public class collision : MonoBehaviour
             other.gameObject.tag != "background" )
             {
                 targets.Add(other.gameObject);
-                    if (!this.transform.parent.GetComponent<Nave>().enemy)
+                    if (!this.transform.parent.GetComponent<Nave>().enemy && !this.transform.parent.GetComponent<Nave>().targetfixed)
                         this.transform.parent.GetComponent<Nave>().enemy = other.gameObject;
                         _distance = Vector2.Distance(this.transform.position, other.transform.position);
         }
@@ -39,13 +39,14 @@ public class collision : MonoBehaviour
     {
         if (this.transform.parent.GetComponent<Nave>().enemy == null)
         {
+            this.transform.parent.GetComponent<Nave>().targetfixed = false;
             if(targets.Count != 0) { 
                 foreach (var target in targets)
                 {
                     if(target!= null) {
-                        this.transform.parent.GetComponent<Nave>().enemy = _distance >= Vector2.Distance(this.transform.position, target.transform.position) ? target : this.transform.parent.GetComponent<Nave>().enemy;
-                        _distance = Vector2.Distance(this.transform.position, target.transform.position);
-                    }
+                        float dist = Vector2.Distance(this.transform.position, target.transform.position);
+                        this.transform.parent.GetComponent<Nave>().enemy = _distance >= dist ? target : this.transform.parent.GetComponent<Nave>().enemy;
+                        _distance = _distance >= dist ? dist : _distance;                     }
                     else{
                         targets.Remove(target);
                     }

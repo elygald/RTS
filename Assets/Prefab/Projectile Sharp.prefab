@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 5689970464665712750}
-  m_Speed: 5
+  m_Speed: 8
   enemy: 
   timelive: 2
   valuedano: 5

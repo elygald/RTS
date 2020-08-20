@@ -91,5 +91,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1591532375050511372, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
+        type: 3}
+      propertyPath: colorselect.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591532375050511372, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
+        type: 3}
+      propertyPath: colorselect.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591532375050511372, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
+        type: 3}
+      propertyPath: colorselect.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f441ee1d4de51f8e89834c27dfc15e0, type: 3}

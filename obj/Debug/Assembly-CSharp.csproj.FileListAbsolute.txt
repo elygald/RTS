@@ -143,7 +143,6 @@ D:\RTS\Temp\bin\Debug\UnityEngine.CrashReportingModule.dll
 D:\RTS\Temp\bin\Debug\UnityEngine.DirectorModule.dll
 D:\RTS\Temp\bin\Debug\UnityEngine.dll
 D:\RTS\Temp\bin\Debug\UnityEngine.DSPGraphModule.dll
-D:\RTS\Temp\bin\Debug\UnityEngine.FileSystemHttpModule.dll
 D:\RTS\Temp\bin\Debug\UnityEngine.GameCenterModule.dll
 D:\RTS\Temp\bin\Debug\UnityEngine.GridModule.dll
 D:\RTS\Temp\bin\Debug\UnityEngine.HotReloadModule.dll
@@ -221,7 +220,6 @@ D:\RTS\Temp\bin\Debug\UnityEngine.CoreModule.xml
 D:\RTS\Temp\bin\Debug\UnityEngine.CrashReportingModule.xml
 D:\RTS\Temp\bin\Debug\UnityEngine.DSPGraphModule.xml
 D:\RTS\Temp\bin\Debug\UnityEngine.DirectorModule.xml
-D:\RTS\Temp\bin\Debug\UnityEngine.FileSystemHttpModule.xml
 D:\RTS\Temp\bin\Debug\UnityEngine.GameCenterModule.xml
 D:\RTS\Temp\bin\Debug\UnityEngine.GridModule.xml
 D:\RTS\Temp\bin\Debug\UnityEngine.HotReloadModule.xml
@@ -269,3 +267,10 @@ D:\RTS\Temp\bin\Debug\UnityEngine.XRModule.xml
 D:\RTS\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\RTS\obj\Debug\Assembly-CSharp.dll
 D:\RTS\obj\Debug\Assembly-CSharp.pdb
+D:\RTS\Temp\bin\Debug\UnityEngine.SubsystemsModule.dll
+D:\RTS\Temp\bin\Debug\Unity.CompilationPipeline.Common.dll
+D:\RTS\Temp\bin\Debug\UnityEditor.TestRunner.dll
+D:\RTS\Temp\bin\Debug\UnityEngine.TestRunner.dll
+D:\RTS\Temp\bin\Debug\UnityEngine.SubsystemsModule.xml
+D:\RTS\Temp\bin\Debug\UnityEditor.TestRunner.pdb
+D:\RTS\Temp\bin\Debug\UnityEngine.TestRunner.pdb
