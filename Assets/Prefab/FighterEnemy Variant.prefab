@@ -13,8 +13,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511360, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
-      propertyPath: m_Color.r
-      value: 0.9339623
+      propertyPath: m_Color.b
+      value: 0.53306335
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511360, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
@@ -23,8 +23,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511360, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
-      propertyPath: m_Color.b
-      value: 0.53306335
+      propertyPath: m_Color.r
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
@@ -43,6 +48,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
+        type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -54,16 +64,6 @@ PrefabInstance:
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
-        type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511361, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
@@ -93,8 +93,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511372, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
-      propertyPath: colorselect.r
-      value: 1
+      propertyPath: colorselect.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511372, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
@@ -103,8 +103,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1591532375050511372, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
         type: 3}
-      propertyPath: colorselect.b
-      value: 0
+      propertyPath: colorselect.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793676556266829587, guid: 6f441ee1d4de51f8e89834c27dfc15e0,
+        type: 3}
+      propertyPath: enemy
+      value: nave
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f441ee1d4de51f8e89834c27dfc15e0, type: 3}

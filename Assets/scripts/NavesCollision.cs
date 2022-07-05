@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision : MonoBehaviour
+public class NavesCollision : MonoBehaviour
 {
     public List<GameObject> targets = new List<GameObject>();
     public string enemy;
