@@ -45,7 +45,7 @@ public class Nave : MonoBehaviour
     void Update()
     {
 
-        if (enemy)
+        if (enemy != null)
         {
             target = enemy.transform.position;
    
@@ -77,8 +77,6 @@ public class Nave : MonoBehaviour
 
         lifebar.transform.localScale = new Vector3((lifeporcent * lifenow) * 2f, lifebar.transform.localScale.y, 0);
         lifebar.GetComponent<LifeBar>().active = true;
-
-
 
         lifebar.transform.position = new Vector3(transform.position.x, transform.position.y + 0.25f, transform.position.z);
         if (lifenow <= 0){

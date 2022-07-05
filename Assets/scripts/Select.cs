@@ -96,7 +96,7 @@ public class Select : MonoBehaviour
         {
 
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider != null)
+            if (hit.collider != null && itemsSelected.Count > 1)
             {
                 DestinoTropas = hit.point;
                 float lado = Mathf.Round(Mathf.Sqrt(itemsSelected.Count));
@@ -119,8 +119,8 @@ public class Select : MonoBehaviour
                         else
                             x = first;
 
-                        DestinoUnidade -= ((lado / 2) - x) * right * Vector3.right;
-                        DestinoUnidade -= ((lado / 2) - y) * MediaTamUnidades * Vector3.up;
+                        DestinoUnidade.x -= ((lado / 2) - x) * right;
+                        DestinoUnidade.y -= ((lado / 2) - y) * MediaTamUnidades ;
                         Unidade.GetComponent<Nave>().selected = true;
                         Unidade.GetComponent<Nave>().move = true;
                         Unidade.GetComponent<Nave>().DestinoUnidade = DestinoUnidade;
@@ -128,13 +128,22 @@ public class Select : MonoBehaviour
                             Unidade.GetComponent<Nave>().targetfixed = true;
                             Unidade.GetComponent<Nave>().enemy = hit.collider.gameObject;
                         }else{
-                            Unidade.GetComponent<Nave>().targetfixed = false;
+                            Unidade.GetComponent<Nave>().enemy =null;    
                         }
-                        
+                    
                         i++;
                     }
                 }
 
+            }else if(itemsSelected.Count ==1){
+                Vector3 DestinoUnidade;
+                DestinoTropas = hit.point;
+                DestinoUnidade = DestinoTropas;
+                GameObject Unidade = itemsSelected[0].gameObject;
+                Unidade.GetComponent<Nave>().selected = true;
+                Unidade.GetComponent<Nave>().move = true;
+                //DestinoUnidade =  Vector3.up;
+                Unidade.GetComponent<Nave>().DestinoUnidade = DestinoUnidade;
             }
 
         }

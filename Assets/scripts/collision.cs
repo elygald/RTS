@@ -15,15 +15,17 @@ public class Collision : MonoBehaviour
         if(other.gameObject.tag == enemy && 
             other.gameObject.tag != "background" )
         {         
-               
-            if (this.transform.parent.GetComponent<Nave>().enemy != null){
+            Debug.Log(this.transform.parent.GetComponent<Nave>().enemy);
+            if (this.transform.parent.GetComponent<Nave>().enemy == null)
+            {
+                this.transform.parent.GetComponent<Nave>().enemy = other.gameObject;          
+            }
+            else if(!this.transform.parent.GetComponent<Nave>().targetfixed)
+            {
                 _distance = Vector2.Distance(this.transform.position , other.transform.position);
                 float dist = Vector2.Distance(this.transform.position, this.transform.parent.GetComponent<Nave>().enemy.transform.position);
-                if(!this.transform.parent.GetComponent<Nave>().targetfixed){
-                    this.transform.parent.GetComponent<Nave>().enemy = _distance >= dist ? other.gameObject : this.transform.parent.GetComponent<Nave>().enemy;
-                }                  
-            }else{
-                 this.transform.parent.GetComponent<Nave>().enemy = other.gameObject;
+                this.transform.parent.GetComponent<Nave>().enemy = _distance < dist ? other.gameObject : this.transform.parent.GetComponent<Nave>().enemy;
+                          
             }
         }
     }
@@ -32,8 +34,14 @@ public class Collision : MonoBehaviour
     {
          if(other.gameObject.tag == enemy && 
             other.gameObject.tag != "background" )
-        {     
-            this.transform.parent.GetComponent<Nave>().enemy = null;
+        {    
+            if(this.transform.parent.GetComponent<Nave>().targetfixed && this.transform.parent.GetComponent<Nave>().enemy != null){
+                if(GameObject.ReferenceEquals(other.gameObject, this.transform.parent.GetComponent<Nave>().enemy.gameObject))
+                    this.transform.parent.GetComponent<Nave>().enemy = null;
+            }else{
+                this.transform.parent.GetComponent<Nave>().enemy = null;
+            }
+            
         }
     }
 
